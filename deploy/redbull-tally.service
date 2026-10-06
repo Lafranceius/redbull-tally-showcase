@@ -1,0 +1,15 @@
+[Unit]
+Description=Red Bull tally (office fridge)
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/redbull-tally
+EnvironmentFile=%h/redbull-tally/.env
+ExecStart=%h/.local/node/bin/node %h/redbull-tally/dist/server.js
+Restart=always
+RestartSec=2
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

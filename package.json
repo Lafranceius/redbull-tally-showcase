@@ -1,0 +1,31 @@
+{
+  "name": "redbull-tally",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Office Red Bull tally: scan a QR code on the fridge, log a can, settle up monthly.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "tsc --noEmit && vitest run",
+    "test:watch": "vitest",
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && PUBLIC_URL=http://localhost:8095 MAIL_MODE=console DB_PATH=./data/dev.db node dist/server.js",
+    "deploy": "bash scripts/deploy.sh",
+    "members": "bash scripts/members.sh",
+    "sign": "node scripts/make-sign.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.3",
+    "hono": "^4.13.13"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "@types/qrcode": "^1.5.6",
+    "esbuild": "^0.28.2",
+    "qrcode": "^1.5.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

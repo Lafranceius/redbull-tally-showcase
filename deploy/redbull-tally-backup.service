@@ -1,0 +1,7 @@
+[Unit]
+Description=Online backup of the Red Bull tally database (keeps 30 days)
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/redbull-tally
+ExecStart=%h/.local/node/bin/node %h/redbull-tally/dist/cli.js backup
